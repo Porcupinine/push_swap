@@ -24,10 +24,37 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+/**
+ * Erases the data in the n bytes of the memory starting
+ * at the location pointed to by s, by writing zeros (bytes containing '\0')
+ * to that area.
+ * @param s location
+ * @param n amount of \0
+ */
 void	ft_bzero(void *s, size_t n);
+/**
+ * Checks if parameter is alphanumeric
+ * @param c what to check
+ * @return 0 if it's not or something alse if it is
+ */
 int		ft_isalnum(int c);
+/**
+ * Checks if parameter is a character
+ * @param c what to check
+ * @return 0 if it's not or something else if it is
+ */
 int		ft_isalpha(int c);
+/**
+ * Check if parameter is ascii
+ * @param c what to check
+ * @return 0 if it's not or something else if it is
+ */
 int		ft_isascii(int c);
+/**
+ * Check if parameter is a digit
+ * @param c what to check
+ * @return 0 if it's not or something else if it is
+ */
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
