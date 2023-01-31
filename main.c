@@ -55,7 +55,6 @@ int main(int argc, char **argv)
 		else
 		{
 			ft_printf("Error not a number\n");
-			ft_lstclear()
 			return (1);
 		}
 	}

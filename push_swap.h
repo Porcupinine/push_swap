@@ -34,14 +34,16 @@ void add_node(n_list **head, int nbr);
 /**
  * swap the first two elements of a list
  * @param head pointer to the head of the list
+ * @param n2 pointer to the second node of the list
  */
-void swap(n_list **head);
+void swap(n_list *head, n_list *n2);
 /**
  * take first element from a list and put it on the top
  * of another list
- * @param head pointer to the head of the list
+ * @param head_x pointer to the head of the list x
+ * @param head_y pointer to the head of the list y
  */
-void push(n_list **head);
+void push(n_list **head_x, n_list **head_y);
 /**
  * shift all elements up by 1
  * @param head pointer to the head of the list

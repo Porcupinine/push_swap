@@ -11,19 +11,31 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
+#include "libft.h"
 
-void swap(n_list **head)
+void swap(n_list *head, n_list *n2)
 {
+    n_list *tmp;
 
+    tmp = malloc(1 * sizeof(n_list));
+    if (tmp == NULL)
+        return ;
+    tmp = head->next;
+    head->next = n2->next;
+    n2->next = tmp;
 }
 
-void push(n_list **head)
+void push(n_list **head_x, n_list **head_y)
 {
 
 }
 
 void rotate(n_list **head)
 {
+    n_list last;
+    last = ft_lstlast()
+
 
 }
 
