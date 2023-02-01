@@ -14,15 +14,14 @@
 #include <stdlib.h>
 #include "libft.h"
 
-void swap(n_list *head, n_list *n2)
+void swap(n_list **head)
 {
     n_list *tmp;
+	n_list *n2;
 
-    tmp = malloc(1 * sizeof(n_list));
-    if (tmp == NULL)
-        return ;
-    tmp = head->next;
-    head->next = n2->next;
+	n2 = (*head)->next;
+    tmp = (*head)->next;
+	(*head)->next = n2->next;
     n2->next = tmp;
 }
 
