@@ -38,7 +38,8 @@ int main(int argc, char **argv)
 
 	count = argc - 1;
 	nbr = 0;
-	n_list *stack_a = NULL;
+	stack *stack_a = NULL;
+	stack *stack_b = NULL;
 	if (argc < 2)
 	{
 		ft_printf("Error argc too small\n");
@@ -58,8 +59,16 @@ int main(int argc, char **argv)
 			return (1);
 		}
 	}
+	ft_printf("lista original a\n");
 	print_list(stack_a);
-	push_swap(&stack_a);
+	ft_printf("lista original b\n");
+	print_list(stack_b);
+//	push_swap(&stack_a);
+	push(&stack_a,&stack_b);
+	ft_printf("lista push a\n");
+	print_list(stack_a);
+	ft_printf("lista push b\n");
+	print_list(stack_b);
 	//call push_swap with the list
 	return (0);
 }

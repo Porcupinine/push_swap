@@ -12,8 +12,10 @@
 
 #include "push_swap.h"
 
-void push_swap(n_list **stack_a)
+void push_swap(stack **stack_a)
 {
+	char *actions;
+
 
 }
 

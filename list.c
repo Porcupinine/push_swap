@@ -14,13 +14,13 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
-void add_node(n_list **head, int nbr)
+void add_node(stack **head, int nbr)
 {
-	n_list *n_nbr;
+	stack *n_nbr;
 
-//	if (nList == 0 || nbr == NULL)
-//		return ;
-	n_nbr = malloc(1 * sizeof(n_list));
+	if (nbr == NULL)
+		return ;
+	n_nbr = malloc(1 * sizeof(stack));
 	if (n_nbr == NULL)
 		return ;
 	n_nbr->number = nbr;
@@ -28,30 +28,33 @@ void add_node(n_list **head, int nbr)
 	*head = n_nbr;
 }
 
-void print_list(n_list *nList)
+void print_list(stack *nList)
 {
+	int count_nodes;
+
+	count_nodes = 1;
 	while (nList != NULL)
 	{
-		ft_printf("Node value :%d\n", nList->number);
+		ft_printf("Node %d value :%d\n", count_nodes, nList->number);
 		nList = nList->next;
+		count_nodes++;
 	}
 }
 
-//void	ft_lstadd_front(t_list **lst, t_list *new_node)
-//{
-//	if (lst == NULL || new_node == NULL)
-//		return ;
-//	new_node->next = *lst;
-//	*lst = new_node;
-//}
-//t_list	*ft_lstnew(void *content)
-//{
-//	t_list	*new_item;
-//
-//	new_item = malloc(1 * sizeof(t_list));
-//	if (new_item == NULL)
-//		return (NULL);
-//	new_item->content = content;
-//	new_item->next = NULL;
-//	return (new_item);
-//}
+stack *find_last(stack *head)
+{
+	while (head->next != NULL)
+	{
+		head = head->next;
+	}
+	return (head);
+}
+
+stack *find_penultimate(stack *head)
+{
+	while (head->next->next != NULL)
+	{
+		head = head->next;
+	}
+	return (head);
+}
