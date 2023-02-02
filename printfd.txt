@@ -1,0 +1,6 @@
+//	ft_printf("head number is: %d\n", (*head)->number);
+//	ft_printf("head next number is: %d\n", (*head)->next->number);
+//	ft_printf("n2 number is: %d\n", n2->number);
+//	ft_printf("n2 next number is: %d\n", n2->next->number);
+//	ft_printf("tmp number is: %d\n", tmp->number);
+//	ft_printf("tmp next number is: %d\n", tmp->next->number);
