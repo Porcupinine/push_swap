@@ -18,8 +18,6 @@ void add_node(stack **head, int nbr)
 {
 	stack *n_nbr;
 
-	if (nbr == NULL)
-		return ;
 	n_nbr = malloc(1 * sizeof(stack));
 	if (n_nbr == NULL)
 		return ;
@@ -57,4 +55,16 @@ stack *find_penultimate(stack *head)
 		head = head->next;
 	}
 	return (head);
+}
+
+int check_sort(stack *head)
+{
+	while (head->next != NULL)
+	{
+		if (head->number < head->next->number)
+			head = head->next;
+		else
+			return (1);
+	}
+	return (0);
 }

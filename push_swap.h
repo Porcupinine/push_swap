@@ -19,7 +19,15 @@ typedef struct stack
 	int				number;
 	struct stack 	*next;
 }stack;
-
+//-----------------stack2.c------------------
+/**
+ * Check if the number already exists
+ * @param head pointer to the top of the stack
+ * @param nbr number to check
+ * @return 0 if it does not exist or 1 if it does
+ */
+int check_for_repeat(stack *head, int nbr);
+//-----------------stack.c-------------------
 /**
  * print given list
  * @param head start of the list
@@ -32,11 +40,6 @@ void print_list(stack *head);
  */
 void add_node(stack **head, int nbr);
 /**
- * swap the first two elements of a list
- * @param head pointer to the head of the list
- */
-void swap(stack **head);
-/**
  * Finds the last node
  * @param head pointer to the start of the list
  * @return last node
@@ -48,6 +51,19 @@ stack *find_last(stack *head);
  * @return penultimate node
  */
 stack *find_penultimate(stack *head);
+/**
+ * check if the stack is sorted
+ * @param head pointer to the top of the stack
+ * @return 0 if sorted or 1 if not sorted
+ */
+int check_sort(stack *head);
+
+//----------------rules.c--------------------
+/**
+ * swap the first two elements of a list
+ * @param head pointer to the head of the list
+ */
+void swap(stack **head);
 /**
  * take first element from a list and put it on the top
  * of another list
@@ -65,6 +81,8 @@ void rotate(stack **head);
  * @param head pointer to the head of the list
  */
 void reverse_rotate(stack **head);
+
+//----------------push_swap.c-----------------
 /**
  * sort a list of integers
  * @param head
