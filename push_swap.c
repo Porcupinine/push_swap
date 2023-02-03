@@ -14,6 +14,8 @@
 
 void push_swap(stack **stack_a)
 {
+//	stack *stack_b;
+//	*stack_b = NULL;
 
 
 
