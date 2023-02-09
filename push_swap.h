@@ -27,12 +27,38 @@ typedef struct stack
  * @return 0 if it does not exist or 1 if it does
  */
 int check_for_repeat(stack *head, int nbr);
+/**
+ * Finds the smalles value on the stack
+ * @param head pointer to the head of the stack
+ * @return smallest value
+ */
+int smallest_value(stack *head);
+/**
+ * Finds the biggesr value on the stack
+ * @param head pointer to the head of the stack
+ * @return the biggest value
+ */
+int biggest_value(stack *head);
+/**
+ * check if stak is sorted from biggest to smallest
+ * @param head pointer to the head of stack
+ * @return 0 if ok 1 if not sorted
+ */
+int check_counter_sort(stack *head);
+/**
+ * finds node position
+ * @param head pointer to the top of the stack
+ * @param nbr number to search
+ * @return position
+ */
+int check_position(stack *head, int nbr);
+
 //-----------------stack.c-------------------
 /**
  * print given list
  * @param head start of the list
  */
-void print_list(stack *head);
+void print_stack(stack *head);
 /**
  * create and add new node to the list
  * @param head pointer to the head of the list
@@ -87,7 +113,7 @@ void reverse_rotate(stack **head);
  * sort a list of integers
  * @param head
  */
-void push_swap(stack **head);
+void push_swap(stack **head, int stack_size);
 
 
 

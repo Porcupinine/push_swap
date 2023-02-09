@@ -38,14 +38,6 @@ static int make_stack(int argc, char **argv, stack **stack_a)
 
 	count = argc - 1;
 	nbr = 0;
-	int argccount = argc;
-	int srgcount = 0;
-	while (argccount > 0)
-	{
-		ft_printf("%s, ", argv[srgcount]);
-		srgcount++;
-		argccount --;
-	}
 	while (count >= 1)
 	{
 		if (is_str_number(argv[count]) != 0)
@@ -53,7 +45,7 @@ static int make_stack(int argc, char **argv, stack **stack_a)
 			nbr = ft_atoi(argv[count]);
 			if (*stack_a != NULL && check_for_repeat(*stack_a, nbr) == 1)
 				return (ft_printf("Error repeated number\n"), 1);
-			add_node(&stack_a, nbr);
+			add_node(stack_a, nbr);
 			count--;
 		}
 		else
@@ -65,31 +57,15 @@ static int make_stack(int argc, char **argv, stack **stack_a)
 int main(int argc, char **argv)
 {
 	stack *stack_a;
-	int ret;
 
-	ret = 0;
 	stack_a = NULL;
 	if (argc < 2)
-		return (ft_printf("Error argc too small\n"), 1);
+		return (1);
 	if (make_stack(argc, argv, &stack_a) == 1)
 		return (ft_printf("Error making the stack"), 1);
-//	while (count >= 1)
-//	{
-//		if (is_str_number(argv[count]) != 0)
-//		{
-//			nbr = ft_atoi(argv[count]);
-//			if (stack_a != NULL && check_for_repeat(stack_a, nbr) == 1)
-//				return (ft_printf("Error repeated number\n"), 1);
-//			add_node(&stack_a, nbr);
-//			count--;
-//		}
-//		else
-//			return (ft_printf("Error not a number\n"), 1);
-//	}
-	ft_printf("lista original a\n");
-	print_list(stack_a);
-	ft_printf("sort result: %d", check_sort(stack_a));
-	//call push_swap with the list
+	ft_printf("smallest: %d\n", smallest_value(stack_a));
+	ft_printf("biggest: %d\n", biggest_value(stack_a));
+	push_swap(&stack_a, (argc - 1));
 	return (0);
 }
 

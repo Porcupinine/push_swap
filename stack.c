@@ -26,15 +26,15 @@ void add_node(stack **head, int nbr)
 	*head = n_nbr;
 }
 
-void print_list(stack *nList)
+void print_stack(stack *head)
 {
 	int count_nodes;
 
 	count_nodes = 1;
-	while (nList != NULL)
+	while (head != NULL)
 	{
-		ft_printf("Node %d value :%d\n", count_nodes, nList->number);
-		nList = nList->next;
+		ft_printf("Node %d value :%d\n", count_nodes, head->number);
+		head = head->next;
 		count_nodes++;
 	}
 }
