@@ -35,54 +35,81 @@ static void divide_stacks(stack **stack_a, stack **stack_b, int stack_size, int 
 	int count;
 
 	count = 0;
-	mid_value = get_average(*stack_a, stack_size);
-	while(count < stack_size)
+	mid_value = stack_size/2;
+//	while(count < mid_value)
+//	{
+//		push(stack_a, stack_b);
+//		ft_printf("pb\n");
+//		count++;
+//		(*actions)++;
+//	}
+	while (count < mid_value)
 	{
-		if ((*stack_a)->number < mid_value)
+		if((*stack_a)->number < (*stack_a)->next->number && (*stack_a)->number < find_last(*stack_a)->number)
+		{
 			push(stack_a, stack_b);
-		count++;
-		actions++;
-		ft_printf("stack a\n");
-		print_stack(*stack_a);
-		ft_printf("stack b\n");
-		print_stack(*stack_b);
+			ft_printf("pb\n");
+			count++;
+			(*actions)++;
+		}
+		else if ((*stack_a)->number > (*stack_a)->next->number)
+		{
+			if((*stack_a)->next->number < find_last(*stack_a)->number)
+			{
+				swap(stack_a);
+				ft_printf("sa\n");
+				(*actions)++;
+				push(stack_a, stack_b);
+				ft_printf("pb\n");
+				(*actions)++;
+				count++;
+			}
+			else
+			{
+				rotate(stack_a);
+				ft_printf("ra\n");
+				(*actions)++;
+				push(stack_a, stack_b);
+				ft_printf("pb\n");
+				(*actions)++;
+				count++;
+			}
+		}
 	}
 }
+
 static void divide_by_two(stack **stack_a, stack **stack_b, int stack_size, int *actions)
 {
 	int mid;
 
 	mid = stack_size / 2;
+	ft_printf("actions: %d\n", *actions);
 	while (mid > 0)
 	{
 		if ((*stack_a)->number == smallest_value(*stack_a))
 		{
 			push(stack_a, stack_b);
+			ft_printf("pb\n");
 			mid--;
-			actions++;
+			(*actions)++;
 		}
 		else if ((*stack_a)->number > (*stack_a)->next->number)
 		{
 			swap(stack_a);
-			actions++;
+			ft_printf("sa\n");
+			(*actions)++;
 		}
 		else if (check_position(*stack_a, smallest_value(*stack_a)) < mid)
 		{
-			ft_printf("pre rotate\n");
-			print_stack(*stack_a);
 			rotate(stack_a);
-			ft_printf("pos rotate\n");
-			print_stack(*stack_a);
-			actions++;
+			ft_printf("ra\n");
+			(*actions)++;
 		}
 		else
 		{
-			ft_printf("pre reverse rotate\n");
-			print_stack(*stack_a);
 			reverse_rotate(stack_a);
-			ft_printf("pos reverse rotate\n");
-			print_stack(*stack_a);
-			actions++;
+			ft_printf("rra\n");
+			(*actions)++;
 		}
 	}
 	if (check_sort(*stack_a) == 1)
@@ -90,23 +117,91 @@ static void divide_by_two(stack **stack_a, stack **stack_b, int stack_size, int 
 
 	}
 	while((*stack_b) != NULL)
+	{
 		push(stack_b, stack_a);
-	ft_printf("stack a\n");
-	print_stack(*stack_a);
-	ft_printf("stack b\n");
-	print_stack(*stack_b);
-	ft_printf("action %d:\n", actions);
+		(*actions)++;
+		ft_printf("pa\n");
+	}
+	ft_printf("action %d:\n", *actions);
 }
+
+static void sort(stack **stack_a, stack **stack_b, int *actions)
+{
+	int mid =4;
+//	while (check_sort(*stack_a) != 0 || check_counter_sort(*stack_b) != 0) {
+//		if (check_sort(*stack_a) != 0 && check_counter_sort(*stack_b) != 0) {
+//			if ((*stack_a)->number > (*stack_a)->next->number && (*stack_b)->number < (*stack_b)->next->number) {
+//				swap(stack_a);
+//				swap(stack_b);
+//				ft_printf("ss\n");
+//				*actions++;
+//			} else {
+//				rotate(stack_b);
+//				rotate(stack_a);
+//				ft_printf("rr\n");
+//				*actions++;
+//			}
+//		} else if (check_sort(*stack_a) != 0) {
+//			if ((*stack_a)->number > (*stack_a)->next->number) {
+//				swap(stack_a);
+//				ft_printf("sa\n");
+//				(*actions)++;
+//			} else if (check_position(*stack_a, smallest_value(*stack_a)) < mid) {
+//				rotate(stack_a);
+//				ft_printf("ra\n");
+//				(*actions)++;
+//			} else {
+//				reverse_rotate(stack_a);
+//				ft_printf("rra\n");
+//				(*actions)++;
+//			}
+//		} else if (check_counter_sort(*stack_b) != 0) {
+//			if ((*stack_b)->number > (*stack_b)->next->number) {
+//				swap(stack_b);
+//				ft_printf("sa\n");
+//				(*actions)++;
+//			} else if (check_position(*stack_b, biggest_value(*stack_b)) < mid) {
+//				rotate(stack_b);
+//				ft_printf("ra\n");
+//				(*actions)++;
+//			} else {
+//				reverse_rotate(stack_b);
+//				ft_printf("rra\n");
+//				(*actions)++;
+//			}
+//		}
+//	}
+	while (check_sort(*stack_a) != 0 || check_counter_sort(*stack_b) !=0)
+	{
+
+	}
+}
+
+//static short(stack **stack_a, stack **stack_b, int *actions)
+//{
+//
+//}
 
 void push_swap(stack **stack_a, int stack_size)
 {
 	stack *stack_b;
-	int *actions;
+	int actions;
 
 	actions = 0;
 	stack_b = NULL;
-	get_average(*stack_a, stack_size);
-	divide_stacks(stack_a, &stack_b, stack_size, actions);
+//	get_average(*stack_a, stack_size);
+	divide_stacks(stack_a, &stack_b, stack_size, &actions);
+	print_stack(*stack_a);
+	ft_printf("pre stack a \n");
+	print_stack(*stack_a);
+	ft_printf("pre stack b \n");
+	print_stack(stack_b);
+	ft_printf("actions:%d\n", actions);
+	sort(stack_a, &stack_b, &actions);
+	ft_printf("stack a \n");
+	print_stack(*stack_a);
+	ft_printf("stack b \n");
+	print_stack(stack_b);
 //	while(check_sort(*stack_a) != 0 || check_counter_sort(stack_b) != 0)
 //	{
 //		if (stack_b->number < stack_b->next->number)
