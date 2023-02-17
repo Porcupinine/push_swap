@@ -115,6 +115,6 @@ void reverse_rotate(stack **head);
  */
 void push_swap(stack **head, int stack_size);
 
-
+void sort_turk(stack **stack_a);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H

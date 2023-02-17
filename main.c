@@ -20,7 +20,11 @@ static int is_str_number(char *str)
 
 	count = 0;
 	if(str[0] == '-' || str[0] == '+')
+	{
+		if (str[1] == '\0')
+			return (0);
 		count++;
+	}
 	while (str[count] != '\0')
 	{
 		if (ft_isdigit(str[count]) != 0)
@@ -65,7 +69,8 @@ int main(int argc, char **argv)
 		return (ft_printf("Error making the stack"), 1);
 	ft_printf("smallest: %d\n", smallest_value(stack_a));
 	ft_printf("biggest: %d\n", biggest_value(stack_a));
-	push_swap(&stack_a, (argc - 1));
+//	push_swap(&stack_a, (argc - 1));
+	sort_turk(&stack_a);
 	return (0);
 }
 
