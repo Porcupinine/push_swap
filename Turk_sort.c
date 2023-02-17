@@ -24,17 +24,19 @@ void find_closest_smaller(int a_nbr, stack *stack_b)
 {
 	int smallest;
 
-	smallest = a_nbr;
+	smallest = smallest_value(stack_b);
 	while (stack_b != NULL)
 	{
-		if (stack_b->number > smallest)
-			stack_b = stack_b->next;
-		else
+        if(stack_b->number > a_nbr)
+            stack_b = stack_b->next;
+		else if(stack_b->number > smallest)
 		{
 			smallest = stack_b->number;
 			stack_b = stack_b->next;
 		}
-	}
+        else
+            stack_b = stack_b->next;
+    }
 	ft_printf("closest under %d is %d\n", a_nbr, smallest);
 }
 
@@ -42,17 +44,19 @@ int find_closest_bigger(int a_nbr, stack *stack_b)
 {
 	int bigger;
 
-	bigger = a_nbr;
+	bigger = biggest_value(stack_b);
 	while (stack_b != NULL)
 	{
-		if (stack_b->number < bigger)
+		if (stack_b->number < a_nbr)
 			stack_b = stack_b->next;
-		else
+		else if (stack_b->number <bigger)
 		{
 			bigger = stack_b->number;
 			stack_b = stack_b->next;
 		}
-	}
+        else
+            stack_b = stack_b->next;
+    }
 	ft_printf("closest above %d is %d\n", a_nbr, bigger);
 }
 
@@ -61,9 +65,6 @@ void sort_turk(stack **stack_a)
 	stack *stack_b;
 
 	stack_b = NULL;
-	push(stack_a, &stack_b);
-	push(stack_a, &stack_b);
-	push(stack_a, &stack_b);
 	push(stack_a, &stack_b);
 	push(stack_a, &stack_b);
 	print_test(*stack_a, stack_b);

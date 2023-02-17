@@ -115,6 +115,22 @@ void reverse_rotate(stack **head);
  */
 void push_swap(stack **head, int stack_size);
 
+//---------------turk_sort.c------------------
+/**
+ *
+ * @param stack_a
+ */
 void sort_turk(stack **stack_a);
+
+//----------------create_stack.c---------------
+
+/**
+ *
+ * @param argc
+ * @param argv
+ * @param stack_a
+ * @return
+ */
+int make_stack(int argc, char **argv, stack **stack_a);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H
