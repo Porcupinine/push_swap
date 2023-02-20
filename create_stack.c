@@ -78,21 +78,10 @@ int make_stack(int argc, char **argv, stack **stack_a)
     nbr = 0;
     while (count >= 1)
     {
-        if (is_str_number(argv[count]) != 0)
-        {
-            nbr = ft_atoi(argv[count]);
-            if (*stack_a != NULL && check_for_repeat(*stack_a, nbr) == 1)
-                return (ft_printf("Error repeated number\n"), 1);
-            add_node(stack_a, nbr);
-            count--;
-        }
-        else
-        {
             real_argv = ft_split(argv[count], ' ');
             if (check_add_node(real_argv, stack_a) == 1)
                 return (ft_printf("Error repeated number\n"), 1);
             count--;
-        }
     }
     return (0);
 }

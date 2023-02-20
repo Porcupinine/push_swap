@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 #include "ft_printf.h"
+
 void print_test(stack *stack_a, stack *stack_b)
 {
 	ft_printf("stack a \n");
@@ -27,14 +28,12 @@ void find_closest_smaller(int a_nbr, stack *stack_b)
 	smallest = smallest_value(stack_b);
 	while (stack_b != NULL)
 	{
-        if(stack_b->number > a_nbr)
-            stack_b = stack_b->next;
-		else if(stack_b->number > smallest)
+		if(stack_b->number > smallest)
 		{
 			smallest = stack_b->number;
 			stack_b = stack_b->next;
 		}
-        else
+		else
             stack_b = stack_b->next;
     }
 	ft_printf("closest under %d is %d\n", a_nbr, smallest);
@@ -47,17 +46,20 @@ int find_closest_bigger(int a_nbr, stack *stack_b)
 	bigger = biggest_value(stack_b);
 	while (stack_b != NULL)
 	{
-		if (stack_b->number < a_nbr)
-			stack_b = stack_b->next;
-		else if (stack_b->number <bigger)
+		if (stack_b->number <bigger)
 		{
 			bigger = stack_b->number;
 			stack_b = stack_b->next;
 		}
-        else
+		else
             stack_b = stack_b->next;
     }
 	ft_printf("closest above %d is %d\n", a_nbr, bigger);
+}
+
+void check_moves(stack *stack_a, stack *stack_b)
+{
+
 }
 
 void sort_turk(stack **stack_a)
@@ -70,8 +72,6 @@ void sort_turk(stack **stack_a)
 	print_test(*stack_a, stack_b);
 	find_closest_smaller((*stack_a)->number, stack_b);
 	find_closest_bigger((*stack_a)->number, stack_b);
-
-	//find closest smaller on stack b
 	//calculate moves for each number to be on top of the closest smaller
 	//move number with the least amount of moves till there are only 3 numbers left on stack a
 	//sort stack a
