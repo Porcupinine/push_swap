@@ -10,21 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 #include "ft_printf.h"
 #include <stdlib.h>
-
-void add_node(stack **head, int nbr)
-{
-	stack *n_nbr;
-
-	n_nbr = malloc(1 * sizeof(stack));
-	if (n_nbr == NULL)
-		return ;
-	n_nbr->number = nbr;
-	n_nbr->next = *head;
-	*head = n_nbr;
-}
 
 void print_stack(stack *head)
 {
@@ -39,32 +27,10 @@ void print_stack(stack *head)
 	}
 }
 
-stack *find_last(stack *head)
+void print_test(stack *stack_a, stack *stack_b)
 {
-	while (head->next != NULL)
-	{
-		head = head->next;
-	}
-	return (head);
-}
-
-stack *find_penultimate(stack *head)
-{
-	while (head->next->next != NULL)
-	{
-		head = head->next;
-	}
-	return (head);
-}
-
-int check_sort(stack *head)
-{
-	while (head->next != NULL)
-	{
-		if (head->number < head->next->number)
-			head = head->next;
-		else
-			return (1);
-	}
-	return (0);
+    ft_printf("stack a \n");
+    print_stack(stack_a);
+    ft_printf("stack b\n");
+    print_stack(stack_b);
 }

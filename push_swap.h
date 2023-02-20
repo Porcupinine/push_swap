@@ -19,7 +19,9 @@ typedef struct stack
 	int				number;
 	struct stack 	*next;
 }stack;
-//-----------------stack2.c------------------
+
+//-----------------check_stack.c------------------
+
 /**
  * Check if the number already exists
  * @param head pointer to the top of the stack
@@ -27,18 +29,6 @@ typedef struct stack
  * @return 0 if it does not exist or 1 if it does
  */
 int check_for_repeat(stack *head, int nbr);
-/**
- * Finds the smalles value on the stack
- * @param head pointer to the head of the stack
- * @return smallest value
- */
-int smallest_value(stack *head);
-/**
- * Finds the biggesr value on the stack
- * @param head pointer to the head of the stack
- * @return the biggest value
- */
-int biggest_value(stack *head);
 /**
  * check if stak is sorted from biggest to smallest
  * @param head pointer to the head of stack
@@ -52,19 +42,33 @@ int check_counter_sort(stack *head);
  * @return position
  */
 int check_position(stack *head, int nbr);
+/**
+ * check if the stack is sorted
+ * @param head pointer to the top of the stack
+ * @return 0 if sorted or 1 if not sorted
+ */
+int check_sort(stack *head);
+/**
+ * returns the amount of element on the stack
+ * @param head pointer to the head  of the stack
+ * @return size of the stack
+ */
+int check_size(stack *head);
 
-//-----------------stack.c-------------------
+//-----------------search_stack.c--------------
+
 /**
- * print given list
- * @param head start of the list
+ * Finds the smalles value on the stack
+ * @param head pointer to the head of the stack
+ * @return smallest value
  */
-void print_stack(stack *head);
+int smallest_value(stack *head);
 /**
- * create and add new node to the list
- * @param head pointer to the head of the list
- * @param nbr number to be added
+ * Finds the biggesr value on the stack
+ * @param head pointer to the head of the stack
+ * @return the biggest value
  */
-void add_node(stack **head, int nbr);
+int biggest_value(stack *head);
 /**
  * Finds the last node
  * @param head pointer to the start of the list
@@ -77,14 +81,23 @@ stack *find_last(stack *head);
  * @return penultimate node
  */
 stack *find_penultimate(stack *head);
+
+//-----------------stack.c-------------------
+
 /**
- * check if the stack is sorted
- * @param head pointer to the top of the stack
- * @return 0 if sorted or 1 if not sorted
+ * print given list
+ * @param head start of the list
  */
-int check_sort(stack *head);
+void print_stack(stack *head);
+/**
+ * print both stacks
+ * @param stack_a
+ * @param stack_b
+ */
+void print_test(stack *stack_a, stack *stack_b);
 
 //----------------rules.c--------------------
+
 /**
  * swap the first two elements of a list
  * @param head pointer to the head of the list
@@ -109,6 +122,7 @@ void rotate(stack **head);
 void reverse_rotate(stack **head);
 
 //----------------push_swap.c-----------------
+
 /**
  * sort a list of integers
  * @param head
@@ -116,6 +130,7 @@ void reverse_rotate(stack **head);
 void push_swap(stack **head, int stack_size);
 
 //---------------turk_sort.c------------------
+
 /**
  *
  * @param stack_a
@@ -125,12 +140,31 @@ void sort_turk(stack **stack_a);
 //----------------create_stack.c---------------
 
 /**
- *
- * @param argc
- * @param argv
- * @param stack_a
- * @return
+ * Creates a stck with data from command line.
+ * Data must be treated if it's passed as a single string, multiple
+ * stings, or just different arguments.
+ * @param argc number of arguments
+ * @param argv list of arguments
+ * @param stack_a new stack
+ * @return the new stack
  */
 int make_stack(int argc, char **argv, stack **stack_a);
+
+//----------------turk_search.c----------------
+
+/**
+ * finds the biggest number after a_nbr
+ * @param a_nbr number to push
+ * @param stack_b stack to search
+ * @return smaller biggest number
+ */
+int find_closest_bigger(int a_nbr, stack *stack_b);
+/**
+ * fids the smaller number after a_nbr
+ * @param a_nbr number to push
+ * @param stack_b stack to search
+ * @return bigger smallest number
+ */
+int find_closest_smaller(int a_nbr, stack *stack_b);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H

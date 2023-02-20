@@ -12,7 +12,19 @@
 
 #include "libft.h"
 #include "ft_printf.h"
-#include "push_swap.h"
+#include "../push_swap.h"
+
+static void add_node(stack **head, int nbr)
+{
+    stack *n_nbr;
+
+    n_nbr = malloc(1 * sizeof(stack));
+    if (n_nbr == NULL)
+        return ;
+    n_nbr->number = nbr;
+    n_nbr->next = *head;
+    *head = n_nbr;
+}
 
 static int is_str_number(char *str)
 {
