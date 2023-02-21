@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   list .c                                            :+:    :+:            */
+/*   mixed_rules.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/30 16:08:11 by laura         #+#    #+#                 */
-/*   Updated: 2023/01/30 16:08:11 by laura         ########   odam.nl         */
+/*   Created: 2023/02/21 09:41:56 by laura         #+#    #+#                 */
+/*   Updated: 2023/02/21 09:41:56 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 #include "ft_printf.h"
-#include <stdlib.h>
 
-void print_stack(stack *head)
+void push(stack **head_x, stack **head_y)
 {
-	int count_nodes;
+	stack *x2;
 
-	count_nodes = 1;
-	while (head != NULL)
-	{
-		ft_printf("Node %d value :%d\n", count_nodes, head->number);
-		head = head->next;
-		count_nodes++;
-	}
+	x2 = (*head_x)->next;
+	(*head_x)->next = *head_y;
+	*head_y = *head_x;
+	*head_x =  x2;
+
 }
 
-void print_test(stack *stack_a, stack *stack_b)
+void pa(stack **stack_a, stack **stack_b)
 {
-    ft_printf("stack a \n");
-    print_stack(stack_a);
-    ft_printf("stack b\n");
-    print_stack(stack_b);
+	push(stack_a, stack_b);
+	ft_printf("pb\n");
+}
+void pb(stack **stack_a, stack **stack_b)
+{
+	push(stack_b, stack_a);
+	ft_printf("pa\n");
 }

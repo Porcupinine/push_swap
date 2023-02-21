@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../headers/push_swap.h"
+#include "../headers/stack.h"
 #include "ft_printf.h"
 
 int determine_moves(int nbr, stack *stack_a, stack *stack_b)
@@ -26,32 +27,26 @@ int determine_moves(int nbr, stack *stack_a, stack *stack_b)
         {
             if (check_position(stack_b, under) < (check_size(stack_b)/2) +1)
             {
-                reverse_rotate(stack_a);
-                reverse_rotate(stack_b);
+				rrr(stack_a, stack_b);
                 moves++;
-                ft_printf("rrr\n");
             }
             else
             {
-                reverse_rotate(stack_a);
-                moves++;
-                ft_printf("ra\n");
-            }
+				rra(stack_a);
+				moves++;
+			}
         }
         else
         {
             if (check_position(stack_b, under) > (check_size(stack_b)/2) +1)
             {
-                rotate(stack_a);
-                rotate(stack_b);
+				rr(stack_a, stack_b);
                 moves++;
-                ft_printf("rrr\n");
             }
             else
             {
-                rotate(stack_a);
+                ra(stack_a);
                 moves++;
-                ft_printf("ra\n");
             }
         }
 

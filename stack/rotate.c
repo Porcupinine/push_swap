@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   list .c                                            :+:    :+:            */
+/*   ra_rb_rr.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/30 16:08:11 by laura         #+#    #+#                 */
-/*   Updated: 2023/01/30 16:08:11 by laura         ########   odam.nl         */
+/*   Created: 2023/02/21 09:47:00 by laura         #+#    #+#                 */
+/*   Updated: 2023/02/21 09:47:00 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 #include "ft_printf.h"
-#include <stdlib.h>
 
-void print_stack(stack *head)
+void rotate(stack **head)
 {
-	int count_nodes;
+	stack *last;
+	stack *n2;
 
-	count_nodes = 1;
-	while (head != NULL)
-	{
-		ft_printf("Node %d value :%d\n", count_nodes, head->number);
-		head = head->next;
-		count_nodes++;
-	}
+	n2 = (*head)->next;
+	last = find_last(*head);
+	last->next = *head;
+	(*head)->next = NULL;
+	*head = n2;
 }
 
-void print_test(stack *stack_a, stack *stack_b)
+void ra(stack **stack_a)
 {
-    ft_printf("stack a \n");
-    print_stack(stack_a);
-    ft_printf("stack b\n");
-    print_stack(stack_b);
+	rotate(stack_a);
+	ft_printf("ra\n");
+}
+
+void rb(stack **stack_b)
+{
+	rotate(stack_b);
+	ft_printf("rb\n");
+}
+
+void rr(stack **stack_a, stack **stack_b)
+{
+	rotate(stack_b);
+	rotate(stack_a);
+	ft_printf("rr\n");
 }

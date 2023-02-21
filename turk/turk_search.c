@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 
-#include "../push_swap.h"
+#include "../headers/push_swap.h"
 #include "ft_printf.h"
 
 int find_closest_smaller(int a_nbr, stack *stack_b)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../headers/push_swap.h"
 #include "ft_printf.h"
 
 void swap(stack **head)
@@ -25,37 +25,23 @@ void swap(stack **head)
 	*head = n2;
 }
 
-void push(stack **head_x, stack **head_y)
+void sa(stack **stack_a)
 {
-	stack *x2;
-
-	x2 = (*head_x)->next;
-	(*head_x)->next = *head_y;
-	*head_y = *head_x;
-	*head_x =  x2;
-
+	swap(stack_a);
+	ft_printf("sa\n");
 }
 
-void rotate(stack **head)
+void sb(stack **stack_b)
 {
-    stack *last;
-	stack *n2;
-
-	n2 = (*head)->next;
-    last = find_last(*head);
-	last->next = *head;
-	(*head)->next = NULL;
-	*head = n2;
+	swap(stack_b);
+	ft_printf("sb\n")
 }
 
-void reverse_rotate(stack **head)
+void ss(stack **stack_a, stack **stack_b)
 {
-	stack *last;
-	stack *penultimate;
-
-	last = find_last(*head);
-	penultimate = find_penultimate(*head);
-	last->next = *head;
-	penultimate->next = NULL;
-	*head = last;
+	swap(stack_b);
+	swap(stack_a);
+	ft_printf("ss\n");
 }
+
+

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   stack.h                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/30 11:21:39 by laura         #+#    #+#                 */
-/*   Updated: 2023/01/30 11:21:39 by laura         ########   odam.nl         */
+/*   Created: 2023/02/21 11:11:32 by laura         #+#    #+#                 */
+/*   Updated: 2023/02/21 11:11:32 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef PUSH_SWAP_PUSH_SWAP_H
-#define PUSH_SWAP_PUSH_SWAP_H
+#ifndef PUSH_SWAP_STACK_H
+#define PUSH_SWAP_STACK_H
 
 typedef struct stack
 {
@@ -20,8 +20,19 @@ typedef struct stack
 	struct stack 	*next;
 }stack;
 
-//-----------------check_stack.c------------------
+//----------------create_stack.c---------------
+/**
+ * Creates a stck with data from command line.
+ * Data must be treated if it's passed as a single string, multiple
+ * stings, or just different arguments.
+ * @param argc number of arguments
+ * @param argv list of arguments
+ * @param stack_a new stack
+ * @return the new stack
+ */
+int make_stack(int argc, char **argv, stack **stack_a);
 
+//-----------------check_stack.c------------------
 /**
  * Check if the number already exists
  * @param head pointer to the top of the stack
@@ -56,7 +67,6 @@ int check_sort(stack *head);
 int check_size(stack *head);
 
 //-----------------search_stack.c--------------
-
 /**
  * Finds the smalles value on the stack
  * @param head pointer to the head of the stack
@@ -83,7 +93,6 @@ stack *find_last(stack *head);
 stack *find_penultimate(stack *head);
 
 //-----------------stack.c-------------------
-
 /**
  * print given list
  * @param head start of the list
@@ -96,13 +105,30 @@ void print_stack(stack *head);
  */
 void print_test(stack *stack_a, stack *stack_b);
 
-//----------------rules.c--------------------
-
+//----------------swap.c--------------------
 /**
  * swap the first two elements of a list
  * @param head pointer to the head of the list
  */
 void swap(stack **head);
+/**
+ * swap a
+ * @param stack_a
+ */
+void sa(stack **stack_a);
+/**
+ * swap b
+ * @param stack_b
+ */
+void sb(stack **stack_b);
+/**
+ * swap a and b at the same time
+ * @param stack_a
+ * @param stack_b
+ */
+void ss(stack **stack_a, stack **stack_b);
+
+//----------------push.c---------------------
 /**
  * take first element from a list and put it on the top
  * of another list
@@ -111,60 +137,62 @@ void swap(stack **head);
  */
 void push(stack **head_x, stack **head_y);
 /**
+ * push from b to a
+ * @param stack_a
+ * @param stack_b
+ */
+void pa(stack **stack_a, stack **stack_b);
+/**
+ * push from a to b
+ * @param stack_a
+ * @param stack_b
+ */
+void pb(stack **stack_a, stack **stack_b);
+
+//-----------------rotate.c---------------------
+/**
  * shift all elements up by 1
  * @param head pointer to the head of the list
  */
 void rotate(stack **head);
 /**
+ * rotate a
+ * @param stack_a
+ */
+void ra(stack **stack_a);
+/**
+ * rotate b
+ * @param stack_b
+ */
+void rb(stack **stack_b);
+/**
+ * rotate a and b
+ * @param stack_a
+ * @param stack_b
+ */
+void rr(stack **stack_a, stack **stack_b);
+
+//-----------------reverse_rotate.c---------------
+/**
  *shift all elements 1down by
  * @param head pointer to the head of the list
  */
 void reverse_rotate(stack **head);
-
-//----------------push_swap.c-----------------
-
 /**
- * sort a list of integers
- * @param head
- */
-void push_swap(stack **head, int stack_size);
-
-//---------------turk_sort.c------------------
-
-/**
- *
+ * reverse rotate a
  * @param stack_a
  */
-void sort_turk(stack **stack_a);
-
-//----------------create_stack.c---------------
-
+void rra(stack **stack_a);
 /**
- * Creates a stck with data from command line.
- * Data must be treated if it's passed as a single string, multiple
- * stings, or just different arguments.
- * @param argc number of arguments
- * @param argv list of arguments
- * @param stack_a new stack
- * @return the new stack
+ * reverse rotate b
+ * @param stack_b
  */
-int make_stack(int argc, char **argv, stack **stack_a);
-
-//----------------turk_search.c----------------
-
+void rrb(stack **stack_b);
 /**
- * finds the biggest number after a_nbr
- * @param a_nbr number to push
- * @param stack_b stack to search
- * @return smaller biggest number
+ * reverse rotate a and b
+ * @param stack_a
+ * @param stack_b
  */
-int find_closest_bigger(int a_nbr, stack *stack_b);
-/**
- * fids the smaller number after a_nbr
- * @param a_nbr number to push
- * @param stack_b stack to search
- * @return bigger smallest number
- */
-int find_closest_smaller(int a_nbr, stack *stack_b);
+void rrr(stack **stack_a, stack **stack_b);
 
-#endif //PUSH_SWAP_PUSH_SWAP_H
+#endif //PUSH_SWAP_STACK_H

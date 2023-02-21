@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 #include "libft.h"
-#include "push_swap.h"
+#include "headers/push_swap.h"
 
 int main(int argc, char **argv)
 {

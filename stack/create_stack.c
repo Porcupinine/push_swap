@@ -12,7 +12,7 @@
 
 #include "libft.h"
 #include "ft_printf.h"
-#include "../push_swap.h"
+#include "../headers/push_swap.h"
 
 static void add_node(stack **head, int nbr)
 {
