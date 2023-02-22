@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 
-#include "../headers/push_swap.h"
+#include "../headers/turk.h"
+#include "../headers/stack.h"
 #include "ft_printf.h"
 
 int find_closest_smaller(int a_nbr, stack *stack_b)
@@ -29,7 +30,7 @@ int find_closest_smaller(int a_nbr, stack *stack_b)
         else
             stack_b = stack_b->next;
     }
-    ft_printf("closest under %d is %d\n", a_nbr, smallest);
+//    ft_printf("closest under %d is %d\n", a_nbr, smallest);
     return (smallest);
 }
 
@@ -48,6 +49,6 @@ int find_closest_bigger(int a_nbr, stack *stack_b)
         else
             stack_b = stack_b->next;
     }
-    ft_printf("closest above %d is %d\n", a_nbr, bigger);
+//    ft_printf("closest above %d is %d\n", a_nbr, bigger);
     return (bigger);
 }

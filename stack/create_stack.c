@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../headers/turk.h"
+#include "../headers/stack.h"
 #include "ft_printf.h"
-#include "../headers/push_swap.h"
+#include "libft.h"
 
 static void add_node(stack **head, int nbr)
 {

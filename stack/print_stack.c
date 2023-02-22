@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/turk.h"
+#include "../headers/stack.h"
 #include "ft_printf.h"
-#include <stdlib.h>
 
 void print_stack(stack *head)
 {

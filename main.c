@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/turk.h"
+#include "headers/stack.h"
 #include "ft_printf.h"
-#include "libft.h"
-#include "headers/push_swap.h"
 
 int main(int argc, char **argv)
 {
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 		return (ft_printf("Error making the stack"), 1);
 //	ft_printf("smallest: %d\n", smallest_value(stack_a));
 //	ft_printf("biggest: %d\n", biggest_value(stack_a));
-    print_stack(stack_a);
+//    print_stack(stack_a);
 //	push_swap(&stack_a, (argc - 1));
 	sort_turk(&stack_a);
 	return (0);

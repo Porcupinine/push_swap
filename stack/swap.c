@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/turk.h"
+#include "../headers/stack.h"
 #include "ft_printf.h"
 
 void swap(stack **head)
@@ -34,7 +35,7 @@ void sa(stack **stack_a)
 void sb(stack **stack_b)
 {
 	swap(stack_b);
-	ft_printf("sb\n")
+	ft_printf("sb\n");
 }
 
 void ss(stack **stack_a, stack **stack_b)

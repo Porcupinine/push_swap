@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/push_swap.h"
+#include "../headers/turk.h"
+#include "../headers/stack.h"
 #include "ft_printf.h"
 
 void sort_turk(stack **stack_a)
@@ -20,10 +21,15 @@ void sort_turk(stack **stack_a)
 	stack_b = NULL;
 	push(stack_a, &stack_b);
 	push(stack_a, &stack_b);
-    push(stack_a, &stack_b);
-    push(stack_a, &stack_b);
-    push(stack_a, &stack_b);
+	push(stack_a, &stack_b);
+	push(stack_a, &stack_b);
+	push(stack_a, &stack_b);
+	push(stack_a, &stack_b);
+	push(stack_a, &stack_b);
+	push(stack_a, &stack_b);
+	push(stack_a, &stack_b);
     print_test(*stack_a, stack_b);
+	pick_winner(*stack_a, stack_b);
 	find_closest_smaller((*stack_a)->number, stack_b);
 	find_closest_bigger((*stack_a)->number, stack_b);
 	//calculate moves for each number to be on top of the closest smaller

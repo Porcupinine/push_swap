@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/push_swap.h"
+#include "headers/turk.h"
+#include "headers/stack.h"
 #include "ft_printf.h"
 
 int get_average(stack *stack_a, int stack_size)

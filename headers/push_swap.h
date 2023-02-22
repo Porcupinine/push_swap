@@ -14,7 +14,9 @@
 #ifndef PUSH_SWAP_PUSH_SWAP_H
 #define PUSH_SWAP_PUSH_SWAP_H
 
-
+#include "../headers/turk.h"
+#include "../headers/stack.h"
+#include "../gnlprintflibft/include/ft_printf.h"
 
 //----------------push_swap.c-----------------
 
