@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/turk.h"
-#include "headers/stack.h"
+#include "include/turk.h"
+#include "include/stack.h"
 #include "ft_printf.h"
 
 int main(int argc, char **argv)
@@ -27,7 +27,8 @@ int main(int argc, char **argv)
 //	ft_printf("biggest: %d\n", biggest_value(stack_a));
 //    print_stack(stack_a);
 //	push_swap(&stack_a, (argc - 1));
-	sort_turk(&stack_a);
+	turk_push_b(&stack_a);
+//	print_stack(stack_a);
 	return (0);
 }
 

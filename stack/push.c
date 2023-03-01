@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/turk.h"
-#include "../headers/stack.h"
+#include "../include/turk.h"
+#include "../include/stack.h"
 #include "ft_printf.h"
 
 void push(stack **head_x, stack **head_y)
@@ -25,12 +25,12 @@ void push(stack **head_x, stack **head_y)
 
 }
 
-void pa(stack **stack_a, stack **stack_b)
+void pb(stack **stack_a, stack **stack_b)
 {
 	push(stack_a, stack_b);
 	ft_printf("pb\n");
 }
-void pb(stack **stack_a, stack **stack_b)
+void pa(stack **stack_a, stack **stack_b)
 {
 	push(stack_b, stack_a);
 	ft_printf("pa\n");

@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   sort_back.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/30 11:21:39 by laura         #+#    #+#                 */
-/*   Updated: 2023/01/30 11:21:39 by laura         ########   odam.nl         */
+/*   Created: 2023/03/01 14:43:29 by laura         #+#    #+#                 */
+/*   Updated: 2023/03/01 14:43:29 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/turk.h"
+#include "../include/stack.h"
+#include "../printflibft/include/ft_printf.h"
 
-#ifndef PUSH_SWAP_PUSH_SWAP_H
-#define PUSH_SWAP_PUSH_SWAP_H
+void sort_back_a(stack **a, stack **b)
+{
+	int under;
 
-#include "../headers/turk.h"
-#include "../headers/stack.h"
-#include "../gnlprintflibft/include/ft_printf.h"
+	under = find_closest_bigger(&b, (*b)->number);
+	while (b != NULL)
+	{
 
-//----------------push_swap.c-----------------
+	}
+}
 
-/**
- * sort a list of integers
- * @param head
- */
-void push_swap(stack **head, int stack_size);
-
-
-
-#endif //PUSH_SWAP_PUSH_SWAP_H

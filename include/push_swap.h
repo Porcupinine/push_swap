@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   list .c                                            :+:    :+:            */
+/*   push_swap.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/30 16:08:11 by laura         #+#    #+#                 */
-/*   Updated: 2023/01/30 16:08:11 by laura         ########   odam.nl         */
+/*   Created: 2023/01/30 11:21:39 by laura         #+#    #+#                 */
+/*   Updated: 2023/01/30 11:21:39 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#ifndef PUSH_SWAP_PUSH_SWAP_H
+#define PUSH_SWAP_PUSH_SWAP_H
+
 #include "../include/turk.h"
 #include "../include/stack.h"
-#include "ft_printf.h"
+#include "../printflibft/include/ft_printf.h"
 
-void print_stack(stack *head)
-{
-	int count_nodes;
+//----------------push_swap.c-----------------
 
-	count_nodes = 1;
-	while (head != NULL)
-	{
-		ft_printf("Node %d value :%d\n", count_nodes, head->number);
-		head = head->next;
-		count_nodes++;
-	}
-}
+/**
+ * sort a list of integers
+ * @param head
+ */
+void push_swap(stack **head, int stack_size);
 
-void print_test(stack *stack_a, stack *stack_b)
-{
-    ft_printf("stack a \n");
-    print_stack(stack_a);
-    ft_printf("stack b\n");
-    print_stack(stack_b);
-}
+
+
+#endif //PUSH_SWAP_PUSH_SWAP_H

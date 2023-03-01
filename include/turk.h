@@ -20,7 +20,7 @@
  *
  * @param stack_a
  */
-void sort_turk(stack **stack_a);
+void turk_push_b(stack **stack_a);
 
 //----------------turk_search.c----------------
 /**
@@ -39,5 +39,6 @@ int find_closest_bigger(int a_nbr, stack *stack_b);
 int find_closest_smaller(int a_nbr, stack *stack_b);
 
 //--------------turk_check.c----------------------
+
 int pick_winner(stack *stack_a, stack *stack_b);
 #endif //PUSH_SWAP_TURK_H
