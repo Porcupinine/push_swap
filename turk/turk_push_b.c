@@ -61,14 +61,24 @@ static void case_three(int *position_a, int *position_b, stack **a, stack **b)
 
 	size_a = check_size(*a);
 	size_b = check_size(*b);
-	if (*position_a > ((size_a / 2) + 1))
+	if (*position_a != 0 && *position_a > ((size_a / 2) + 1))
 	{
 		rra(a);
 		(*position_a)--;
 	}
-	else if (*position_b < ((size_b / 2) + 1))
+	else if (*position_b  != 0 && *position_b <= ((size_b / 2) + 1))
 	{
 		rrb(b);
+		(*position_b)--;
+	}
+	else if (*position_a != 0 && *position_a <= ((size_a / 2) + 1))
+	{
+		ra(a);
+		(*position_a)--;
+	}
+	else if (*position_b != 0 && *position_b > ((size_b / 2) + 1))
+	{
+		rb(b);
 		(*position_b)--;
 	}
 }
@@ -86,7 +96,7 @@ static void move_to_top(stack **stack_a, stack **stack_b, int winner)
 	pos_b = check_position(*stack_b, find_closest_smaller(winner, *stack_b));
 	while (pos_a != 0 || pos_b != 0)
 	{
-		if (pos_a < ((size_a / 2) + 1) && pos_b < ((size_b / 2) + 1))
+		if (pos_a <= ((size_a / 2) + 1) && pos_b <= ((size_b / 2) + 1))
 			case_one(&pos_a, &pos_b, stack_a, stack_b);
 		else if (pos_a > ((size_a / 2) + 1) && pos_b > ((size_b / 2) + 1))
 			case_two(&pos_a, &pos_b, stack_a, stack_b);
@@ -108,12 +118,9 @@ void turk_push_b(stack **stack_a)
 	{
 		winner = pick_winner(*stack_a, stack_b);
 		move_to_top(stack_a, &stack_b, winner);
-		ft_printf("to top\n");
-		print_stack(stack_b);
 		pb(stack_a, &stack_b);
-		ft_printf("after pb\n");
-		print_stack(stack_b);
 	}
-	//sort stack a
-	//push numbers back, rotating a till top number is the closest bigger
+	sort_a(stack_a);
+	sort_back_a(stack_a, &stack_b);
+	bring_smaller_to_top(stack_a);
 }

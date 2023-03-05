@@ -20,6 +20,9 @@ typedef struct stack
 	struct stack 	*next;
 }stack;
 
+void free_stack(stack **head);
+void free_real_argv(char **real_argv);
+
 //----------------create_stack.c---------------
 /**
  * Creates a stck with data from command line.

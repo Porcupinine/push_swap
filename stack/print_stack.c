@@ -12,7 +12,7 @@
 
 #include "../include/turk.h"
 #include "../include/stack.h"
-#include "ft_printf.h"
+#include "../printflibft/include/ft_printf.h"
 
 void print_stack(stack *head)
 {

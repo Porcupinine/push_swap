@@ -12,7 +12,7 @@
 
 #include "../include/turk.h"
 #include "../include/stack.h"
-#include "ft_printf.h"
+#include "../printflibft/include/ft_printf.h"
 
 static int case_one (int position_a, int position_b)
 {

@@ -1,3 +1,5 @@
+checker_linux
 .idea
 cmake-build-debug/
 printflibft/libft.a
+visualizer

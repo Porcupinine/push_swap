@@ -15,6 +15,9 @@
 
 #include "stack.h"
 
+void sort_back_a(stack **a, stack **b);
+void sort_a(stack **a);
+void bring_smaller_to_top(stack **a);
 //---------------turk_sort.c------------------
 /**
  *

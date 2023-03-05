@@ -12,8 +12,8 @@
 
 #include "../include/turk.h"
 #include "../include/stack.h"
-#include "ft_printf.h"
-#include "libft.h"
+#include "../printflibft/include/ft_printf.h"
+#include "../printflibft/include/libft.h"
 
 static void add_node(stack **head, int nbr)
 {
@@ -71,12 +71,12 @@ static int check_add_node(char **arr, stack **stack_a)
         {
             nbr = ft_atoi(arr[count_arr]);
             if (*stack_a != NULL && check_for_repeat(*stack_a, nbr) == 1)
-                return (ft_printf("Error arrr\n"), 1);
+                return (1);
             add_node(stack_a, nbr);
             count_arr--;
         }
         else
-            return (ft_printf("not number\n"), 1);
+            return (1);
     }
     return (0);
 }
@@ -84,17 +84,20 @@ static int check_add_node(char **arr, stack **stack_a)
 int make_stack(int argc, char **argv, stack **stack_a)
 {
     int count;
-    int nbr;
     char **real_argv;
 
     count = argc - 1;
-    nbr = 0;
     while (count >= 1)
     {
-            real_argv = ft_split(argv[count], ' ');
-            if (check_add_node(real_argv, stack_a) == 1)
-                return (ft_printf("Error repeated number\n"), 1);
-            count--;
+		real_argv = ft_split(argv[count], ' ');
+		if (check_add_node(real_argv, stack_a) == 1)
+		{
+			free_stack(stack_a);
+			free_real_argv(real_argv);
+			return (1);
+		}
+		count--;
+		free_real_argv(real_argv);
     }
     return (0);
 }

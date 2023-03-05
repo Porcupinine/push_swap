@@ -13,7 +13,7 @@
 
 #include "../include/turk.h"
 #include "../include/stack.h"
-#include "ft_printf.h"
+#include "../printflibft/include/ft_printf.h"
 
 int find_closest_smaller(int a_nbr, stack *stack_b)
 {

@@ -12,7 +12,7 @@
 
 #include "include/turk.h"
 #include "include/stack.h"
-#include "ft_printf.h"
+#include "printflibft/include/ft_printf.h"
 
 int main(int argc, char **argv)
 {
@@ -22,13 +22,8 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	if (make_stack(argc, argv, &stack_a) == 1)
-		return (ft_printf("Error making the stack"), 1);
-//	ft_printf("smallest: %d\n", smallest_value(stack_a));
-//	ft_printf("biggest: %d\n", biggest_value(stack_a));
-//    print_stack(stack_a);
-//	push_swap(&stack_a, (argc - 1));
+		return (ft_printf("Error"), 1);
 	turk_push_b(&stack_a);
-//	print_stack(stack_a);
 	return (0);
 }
 

@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   I_want_to_break_free.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/30 11:21:39 by laura         #+#    #+#                 */
-/*   Updated: 2023/01/30 11:21:39 by laura         ########   odam.nl         */
+/*   Created: 2023/03/05 13:16:41 by laura         #+#    #+#                 */
+/*   Updated: 2023/03/05 13:16:41 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-#ifndef PUSH_SWAP_PUSH_SWAP_H
-#define PUSH_SWAP_PUSH_SWAP_H
 
 #include "../include/turk.h"
 #include "../include/stack.h"
 #include "../printflibft/include/ft_printf.h"
+#include "../printflibft/include/libft.h"
 
-//----------------push_swap.c-----------------
+void free_stack(stack **head)
+{
+	stack *temp;
 
-/**
- * sort a list of integers
- * @param head
- */
-void push_swap(stack **head, int stack_size);
+	while (*head != NULL)
+	{
+		temp = *head;
+		*head = (*head)->next;
+		free(temp);
+	}
+}
 
+void free_real_argv(char **real_argv)
+{
+	int count_real;
 
-
-#endif //PUSH_SWAP_PUSH_SWAP_H
+	count_real = 0;
+	while (real_argv[count_real] != NULL)
+	{
+		free(real_argv[count_real]);
+		count_real++;
+	}
+	free(real_argv);
+}

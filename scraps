@@ -1,1 +1,5 @@
 ft_printf("numer: %d\nunder: %d\nposition/size a: %d/%d\nposition/size b: %d/%d\nmoves: %d\n\n", nbr, under, position_a,
+SRC= main.c push_swap.c include/push_swap.h stack/print_stack.c stack/swap.c \
+turk/turk_push_b.c stack/create_stack.c stack/check_stack.c \
+stack/search_stack.c turk/turk_search.c turk/turk_check_moves.c stack/push.c \
+stack/rotate.c stack/reverse_rotate.c turk/sort_back.c
