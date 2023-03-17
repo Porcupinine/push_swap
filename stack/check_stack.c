@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include "../include/turk.h"
-#include "../include/stack.h"
+#include "../include/t_stack.h"
 #include "../printflibft/include/ft_printf.h"
 #include <stdlib.h>
 
-int check_sort(stack *head)
+int check_sort(t_stack*head)
 {
     while (head->next != NULL)
     {
@@ -27,7 +27,7 @@ int check_sort(stack *head)
     return (0);
 }
 
-int check_for_repeat(stack *head, int nbr)
+int check_for_repeat(t_stack*head, int nbr)
 {
     while (head->next != NULL)
     {
@@ -40,7 +40,7 @@ int check_for_repeat(stack *head, int nbr)
     return (0);
 }
 
-int check_counter_sort(stack *head)
+int check_counter_sort(t_stack*head)
 {
     if (head == NULL)
         return (0);
@@ -54,7 +54,7 @@ int check_counter_sort(stack *head)
     return (0);
 }
 
-int check_position(stack *head, int nbr)
+int check_position(t_stack*head, int nbr)
 {
     int position;
 
@@ -67,7 +67,7 @@ int check_position(stack *head, int nbr)
     return (position);
 }
 
-int check_size(stack *head)
+int check_size(t_stack*head)
 {
     int size;
 

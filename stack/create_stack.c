@@ -11,15 +11,15 @@
 /* ************************************************************************** */
 
 #include "../include/turk.h"
-#include "../include/stack.h"
+#include "../include/t_stack.h"
 #include "../printflibft/include/ft_printf.h"
 #include "../printflibft/include/libft.h"
 
-static void add_node(stack **head, int nbr)
+static void add_node(t_stack**head, int nbr)
 {
-    stack *n_nbr;
+    t_stack*n_nbr;
 
-    n_nbr = malloc(1 * sizeof(stack));
+    n_nbr = malloc(1 * sizeof(t_stack));
     if (n_nbr == NULL)
         return ;
     n_nbr->number = nbr;
@@ -58,7 +58,7 @@ static int arr_size(char **arr)
     return(count);
 }
 
-static int check_add_node(char **arr, stack **stack_a)
+static int check_add_node(char **arr, t_stack**stack_a)
 {
     int count_arr;
     int nbr;
@@ -81,7 +81,7 @@ static int check_add_node(char **arr, stack **stack_a)
     return (0);
 }
 
-int make_stack(int argc, char **argv, stack **stack_a)
+int make_stack(int argc, char **argv, t_stack**stack_a)
 {
     int count;
     char **real_argv;

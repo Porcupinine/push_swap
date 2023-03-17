@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 #include "../include/turk.h"
-#include "../include/stack.h"
+#include "../include/t_stack.h"
 #include "../printflibft/include/ft_printf.h"
 #include "../printflibft/include/libft.h"
 
-void free_stack(stack **head)
+void free_stack(t_stack**head)
 {
-	stack *temp;
+	t_stack*temp;
 
 	while (*head != NULL)
 	{

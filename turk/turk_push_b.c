@@ -11,103 +11,42 @@
 /* ************************************************************************** */
 
 #include "../include//turk.h"
-#include "../include//stack.h"
+#include "../include//t_stack.h"
 #include "../printflibft/include/ft_printf.h"
+#include "../printflibft/include/libft.h"
 
-static void case_one (int *position_a, int *position_b, stack **a, stack **b)
-{
-	if (*position_a != 0 && *position_b != 0)
-	{
-		rr(a, b);
-		(*position_b)--;
-		(*position_a)--;
-	}
-	else if (*position_a != 0)
-	{
-		ra(a);
-		(*position_a)--;
-	}
-	else
-	{
-		rb(b);
-		(*position_b)--;
-	}
-}
-
-static void case_two(int *position_a, int *position_b, stack **a, stack **b)
-{
-	if (*position_a != 0 && *position_b != 0)
-	{
-		rrr(a, b);
-		(*position_b)--;
-		(*position_a)--;
-	}
-	else if (*position_a != 0)
-	{
-		rra(a);
-		(*position_a)--;
-	}
-	else
-	{
-		rrb(b);
-		(*position_b)--;
-	}
-}
-
-static void case_three(int *position_a, int *position_b, stack **a, stack **b)
-{
-	int size_a;
-	int size_b;
-
-	size_a = check_size(*a);
-	size_b = check_size(*b);
-	if (*position_a != 0 && *position_a > ((size_a / 2) + 1))
-	{
-		rra(a);
-		(*position_a)--;
-	}
-	else if (*position_b  != 0 && *position_b <= ((size_b / 2) + 1))
-	{
-		rrb(b);
-		(*position_b)--;
-	}
-	else if (*position_a != 0 && *position_a <= ((size_a / 2) + 1))
-	{
-		ra(a);
-		(*position_a)--;
-	}
-	else if (*position_b != 0 && *position_b > ((size_b / 2) + 1))
-	{
-		rb(b);
-		(*position_b)--;
-	}
-}
-
-static void move_to_top(stack **stack_a, stack **stack_b, int winner)
+void move_to_top(t_stack**a, t_stack**b, int winner)
 {
 	int pos_a;
 	int pos_b;
-	int size_a;
-	int size_b;
-
-	size_b = check_size(*stack_b);
-	size_a = check_size(*stack_a);
-	pos_a = check_position(*stack_a, winner);
-	pos_b = check_position(*stack_b, find_closest_smaller(winner, *stack_b));
+	int mid_a;
+	int mid_b;
+	mid_b = ((check_size(*b) / 2) + 1);
+	mid_a = ((check_size(*a) / 2) + 1);
+	pos_a = check_position(*a, winner);
+	pos_b = check_position(*b, find_closest_smaller(winner, *b));
+	if (winner > biggest_value(*b) || winner < smallest_value(*b))
+		pos_b = check_position(*b, biggest_value(*b));
 	while (pos_a != 0 || pos_b != 0)
 	{
-		if (pos_a <= ((size_a / 2) + 1) && pos_b <= ((size_b / 2) + 1))
-			case_one(&pos_a, &pos_b, stack_a, stack_b);
-		else if (pos_a > ((size_a / 2) + 1) && pos_b > ((size_b / 2) + 1))
-			case_two(&pos_a, &pos_b, stack_a, stack_b);
+		if (pos_a <= (mid_a) && pos_b <= (mid_b))
+			push_case_one(pos_a, pos_b, a, b);
+		else if (pos_a > (mid_a) && pos_b > (mid_b))
+			push_case_two(pos_a, pos_b, a, b);
 		else
-			case_three(&pos_a, &pos_b, stack_a, stack_b);
+			push_case_three(pos_a, pos_b, a, b);
+		mid_b = ((check_size(*b) / 2) + 1);
+		mid_a = ((check_size(*a) / 2) + 1);
+		pos_a = check_position(*a, winner);
+		pos_b = check_position(*b, find_closest_smaller(winner, *b));
+		if (winner > biggest_value(*b) || winner < smallest_value(*b))
+				pos_b = check_position(*b, biggest_value(*b));
 	}
 }
 
-void turk_push_b(stack **stack_a)
+void turk_push_b(t_stack**stack_a)
 {
-	stack *stack_b;
+	t_stack *stack_b;
 	int winner;
 
 	winner = 0;

@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "../include/turk.h"
-#include "../include/stack.h"
+#include "../include/t_stack.h"
 #include "../printflibft/include/ft_printf.h"
 
-void print_stack(stack *head)
+void print_stack(t_stack*head)
 {
 	int count_nodes;
 
@@ -27,10 +27,10 @@ void print_stack(stack *head)
 	}
 }
 
-void print_test(stack *stack_a, stack *stack_b)
+void print_test(t_stack*stack_a, t_stack*stack_b)
 {
-    ft_printf("stack a \n");
+    ft_printf("t_stacka \n");
     print_stack(stack_a);
-    ft_printf("stack b\n");
+    ft_printf("t_stackb\n");
     print_stack(stack_b);
 }

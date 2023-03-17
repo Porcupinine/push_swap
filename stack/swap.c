@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 #include "../include//turk.h"
-#include "../include//stack.h"
+#include "../include//t_stack.h"
 #include "../printflibft/include/ft_printf.h"
 
-void swap(stack **head)
+void swap(t_stack**head)
 {
-    stack *tmp;
-	stack *n2;
+    t_stack*tmp;
+	t_stack*n2;
 
 	n2 = (*head)->next;
     tmp = n2->next;
@@ -26,19 +26,19 @@ void swap(stack **head)
 	*head = n2;
 }
 
-void sa(stack **stack_a)
+void sa(t_stack**stack_a)
 {
 	swap(stack_a);
 	ft_printf("sa\n");
 }
 
-void sb(stack **stack_b)
+void sb(t_stack**stack_b)
 {
 	swap(stack_b);
 	ft_printf("sb\n");
 }
 
-void ss(stack **stack_a, stack **stack_b)
+void ss(t_stack**stack_a, t_stack**stack_b)
 {
 	swap(stack_b);
 	swap(stack_a);

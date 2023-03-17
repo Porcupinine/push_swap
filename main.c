@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #include "include/turk.h"
-#include "include/stack.h"
+#include "include/t_stack.h"
 #include "printflibft/include/ft_printf.h"
 
 int main(int argc, char **argv)
 {
-	stack *stack_a;
+	t_stack*stack_a;
 
 	stack_a = NULL;
 	if (argc < 2)
@@ -24,6 +24,9 @@ int main(int argc, char **argv)
 	if (make_stack(argc, argv, &stack_a) == 1)
 		return (ft_printf("Error"), 1);
 	turk_push_b(&stack_a);
-	return (0);
+	if (check_sort(stack_a) == 0)
+		return (0);
+	else
+		return (1);
 }
 

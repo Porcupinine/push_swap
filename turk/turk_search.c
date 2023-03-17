@@ -12,10 +12,10 @@
 
 
 #include "../include/turk.h"
-#include "../include/stack.h"
+#include "../include/t_stack.h"
 #include "../printflibft/include/ft_printf.h"
 
-int find_closest_smaller(int a_nbr, stack *stack_b)
+int find_closest_smaller(int a_nbr, t_stack*stack_b)
 {
     int smallest;
 
@@ -34,7 +34,7 @@ int find_closest_smaller(int a_nbr, stack *stack_b)
     return (smallest);
 }
 
-int find_closest_bigger(int a_nbr, stack *stack_b)
+int find_closest_bigger(int a_nbr, t_stack*stack_b)
 {
     int bigger;
 

@@ -7,7 +7,8 @@ INCLUDE := include
 SRC= main.c stack/print_stack.c stack/swap.c \
 turk/turk_push_b.c stack/create_stack.c stack/check_stack.c \
 stack/search_stack.c turk/turk_search.c turk/turk_check_moves.c stack/push.c \
-stack/rotate.c stack/reverse_rotate.c turk/sort_back.c stack/I_want_to_break_free.c
+stack/rotate.c stack/reverse_rotate.c turk/sort_back.c \
+stack/I_want_to_break_free.c turk/move_cases.c turk/push_cases.c
 
 OBJS_DIR = build/
 OBJS_DIR2 = build/turk

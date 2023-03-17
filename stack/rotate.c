@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 #include "../include/turk.h"
-#include "../include//stack.h"
+#include "../include//t_stack.h"
 #include "../printflibft/include/ft_printf.h"
 
-void rotate(stack **head)
+void rotate(t_stack**head)
 {
-	stack *last;
-	stack *n2;
+	t_stack*last;
+	t_stack*n2;
 
 	n2 = (*head)->next;
 	last = find_last(*head);
@@ -26,19 +26,19 @@ void rotate(stack **head)
 	*head = n2;
 }
 
-void ra(stack **stack_a)
+void ra(t_stack**stack_a)
 {
 	rotate(stack_a);
 	ft_printf("ra\n");
 }
 
-void rb(stack **stack_b)
+void rb(t_stack**stack_b)
 {
 	rotate(stack_b);
 	ft_printf("rb\n");
 }
 
-void rr(stack **stack_a, stack **stack_b)
+void rr(t_stack**stack_a, t_stack**stack_b)
 {
 	rotate(stack_b);
 	rotate(stack_a);

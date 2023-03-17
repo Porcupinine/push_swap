@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "../include//turk.h"
-#include "../include/stack.h"
+#include "../include/t_stack.h"
 #include "../printflibft/include/ft_printf.h"
 
-stack *find_last(stack *head)
+t_stack*find_last(t_stack*head)
 {
     while (head->next != NULL)
     {
@@ -23,7 +23,7 @@ stack *find_last(stack *head)
     return (head);
 }
 
-stack *find_penultimate(stack *head)
+t_stack*find_penultimate(t_stack*head)
 {
     while (head->next->next != NULL)
     {
@@ -32,7 +32,7 @@ stack *find_penultimate(stack *head)
     return (head);
 }
 
-int biggest_value(stack *head)
+int biggest_value(t_stack*head)
 {
     int biggest;
 
@@ -48,7 +48,7 @@ int biggest_value(stack *head)
     return (biggest);
 }
 
-int smallest_value(stack *head)
+int smallest_value(t_stack*head)
 {
     int smallest;
 

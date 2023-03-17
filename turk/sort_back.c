@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "../include/turk.h"
-#include "../include/stack.h"
+#include "../include/t_stack.h"
 #include "../printflibft/include/ft_printf.h"
 
-void bring_smaller_to_top(stack **a)
+void bring_smaller_to_top(t_stack**a)
 {
 	int smaller;
 
@@ -28,7 +28,7 @@ void bring_smaller_to_top(stack **a)
 	}
 }
 
-void sort_a(stack **a)
+void sort_a(t_stack**a)
 {
 	int first;
 	int second;
@@ -58,7 +58,7 @@ void sort_a(stack **a)
 	}
 }
 
-void sort_back_a(stack **a, stack **b)
+void sort_back_a(t_stack**a, t_stack**b)
 {
 	int under;
 	int biggest_on_stack_a;
