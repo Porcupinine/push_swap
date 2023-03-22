@@ -34,8 +34,8 @@ void test_case_1() {
 
 int main() {
 	//	test_case_1();
-//	test_move_cases();
-	test_push_cases();
+	test_move_cases();
+//	test_push_cases();
 //	printf("yay!! \\0/\n");
 	return 0;
 }

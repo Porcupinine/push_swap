@@ -28,9 +28,9 @@ int determine_moves(int nbr, int position_a, int size_a, t_stack*b)
 		under = biggest_value(b);
 		position_b = check_position(b, under);
 	}
-	if (position_a <= ((size_a/2)+1)  && position_b <= ((size_b/2)+1))
+	if (position_a <= ((size_a/2))  && position_b <= ((size_b/2)))
 		return (move_case_one(position_a, position_b));
-	else if (position_a > ((size_a/2)+1)  && position_b > ((size_b/2+1)))
+	else if (position_a > ((size_a/2))  && position_b > ((size_b/2)))
 		return (move_case_two(position_a, position_b, size_a, size_b));
 	else
 		return (move_case_three(position_a, position_b, size_a, size_b));
@@ -48,10 +48,14 @@ int pick_winner(t_stack*a, t_stack*b)
 	position_a = 0;
 	size_a = check_size(a);
 	moves = determine_moves(a->number, position_a, size_a, b);
+	ft_printf("number is: %d      moves are: %d\n", a->number, determine_moves(a->number, position_a, size_a, b));
 	position_a++;
 	a = a->next;
-    while (a != NULL)
+	while (a != NULL)
     {
+//		print_test(a, b);
+//		ft_printf("\n\n");
+		ft_printf("number is: %d      moves are: %d\n", a->number, determine_moves(a->number, position_a, size_a, b));
         if (determine_moves(a->number, position_a, size_a, b) < moves)
         {
             moves = determine_moves(a->number, position_a, size_a, b);

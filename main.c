@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
 	stack_a = NULL;
 	if (argc < 2)
-		return (1);
+		return (1); // print error
 	if (make_stack(argc, argv, &stack_a) == 1)
 		return (ft_printf("Error"), 1);
 	turk_push_b(&stack_a);

@@ -3,3 +3,8 @@ SRC= main.c push_swap.c include/push_swap.h stack/print_stack.c stack/swap.c \
 turk/turk_push_b.c stack/create_stack.c stack/check_stack.c \
 stack/search_stack.c turk/turk_search.c turk/turk_check_moves.c stack/push.c \
 stack/rotate.c stack/reverse_rotate.c turk/sort_back.c
+
+
+153 353 173 504 896 7 138 104 139 334 547 260 684 45 980 704 300 586 785 640 707 228 9 793 134 mine does better
+
+495 496 729 56 876 727 996 538 834 490 695 530 437 217 959 85 521 720 606 900 33 702 375 83 470 mine looses

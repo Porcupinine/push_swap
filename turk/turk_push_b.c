@@ -21,8 +21,8 @@ void move_to_top(t_stack**a, t_stack**b, int winner)
 	int pos_b;
 	int mid_a;
 	int mid_b;
-	mid_b = ((check_size(*b) / 2) + 1);
-	mid_a = ((check_size(*a) / 2) + 1);
+	mid_b = ((check_size(*b) / 2));
+	mid_a = ((check_size(*a) / 2));
 	pos_a = check_position(*a, winner);
 	pos_b = check_position(*b, find_closest_smaller(winner, *b));
 	if (winner > biggest_value(*b) || winner < smallest_value(*b))
@@ -35,8 +35,8 @@ void move_to_top(t_stack**a, t_stack**b, int winner)
 			push_case_two(pos_a, pos_b, a, b);
 		else
 			push_case_three(pos_a, pos_b, a, b);
-		mid_b = ((check_size(*b) / 2) + 1);
-		mid_a = ((check_size(*a) / 2) + 1);
+		mid_b = ((check_size(*b) / 2));
+		mid_a = ((check_size(*a) / 2));
 		pos_a = check_position(*a, winner);
 		pos_b = check_position(*b, find_closest_smaller(winner, *b));
 		if (winner > biggest_value(*b) || winner < smallest_value(*b))
@@ -56,8 +56,10 @@ void turk_push_b(t_stack**stack_a)
 	while (check_size(*stack_a) > 3)
 	{
 		winner = pick_winner(*stack_a, stack_b);
+		print_test(*stack_a, stack_b);
 		move_to_top(stack_a, &stack_b, winner);
 		pb(stack_a, &stack_b);
+		ft_printf("we moved : %d\n\n", winner);
 	}
 	sort_a(stack_a);
 	sort_back_a(stack_a, &stack_b);

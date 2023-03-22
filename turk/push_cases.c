@@ -22,12 +22,12 @@ void push_case_zero(int position_a, t_stack**a)
 	int size_a;
 
 	size_a = check_size(*a);
-	if (position_a != 0 && position_a > size_a / 2 )
+	if (position_a != 0 && position_a > (size_a/2))
 	{
 //		char* aux = ft_strjoin(test_moves, "rra\n"); free(test_moves); test_moves = aux;
 		rra(a);
 	}
-	else if (position_a != 0 && position_a <= ((size_a/2)+ 1))
+	else if (position_a != 0 && position_a <= ((size_a/2)))
 	{
 //		char* aux = ft_strjoin(test_moves, "ra\n"); free(test_moves); test_moves = aux;
 		ra(a);
@@ -80,7 +80,7 @@ void push_case_three (int pos_a, int pos_b, t_stack**a, t_stack**b)
 	size_a = check_size(*a);
 	size_b = check_size(*b);
 //	ft_printf("pos_a: %d\npos_b: %d\nsize_a: %d\nsize_b: %d\n", pos_a, pos_b, size_a, size_b);
-	if (pos_a <= ((size_a/2)+1)   && pos_b > ((size_b/2)+1))
+	if (pos_a <= ((size_a/ 2))   && pos_b > ((size_b/ 2)))
 	{
 		if(pos_a != 0 && pos_b != 0 && pos_b <= pos_a + (size_b - pos_b)) {
 //			ft_printf("posb %d    posa %d    sizeb %d\n", pos_b, pos_a, size_b);
@@ -126,22 +126,22 @@ void push_case_four(int position_a, int position_b, t_stack**a, t_stack**b)
 	size_a = check_size(*a);
 	size_b = check_size(*b);
 //	ft_printf("case four\n");
-	if (position_a != 0 && position_a > ((size_a/2)+1))
+	if (position_a != 0 && position_a > ((size_a/ 2)))
 	{
 //		char* aux = ft_strjoin(test_moves, "rra\n"); free(test_moves); test_moves = aux;
 		rra(a);
 	}
-	else if (position_b  != 0 && position_b > ((size_b/2)+1))
+	else if (position_b  != 0 && position_b > ((size_b/ 2)))
 	{
 //		char* aux = ft_strjoin(test_moves, "rrb\n"); free(test_moves); test_moves = aux;
 		rrb(b);
 	}
-	else if (position_a != 0 && position_a <= ((size_a/2)+1))
+	else if (position_a != 0 && position_a <= ((size_a/ 2)))
 	{
 //		char* aux = ft_strjoin(test_moves, "ra\n"); free(test_moves); test_moves = aux;
 		ra(a);
 	}
-	else if (position_b != 0 && position_b <= ((size_b/2)+1))
+	else if (position_b != 0 && position_b <= ((size_b/ 2)))
 	{
 //		char* aux = ft_strjoin(test_moves, "rb\n"); free(test_moves); test_moves = aux;
 		rb(b);
