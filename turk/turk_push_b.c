@@ -56,10 +56,10 @@ void turk_push_b(t_stack**stack_a)
 	while (check_size(*stack_a) > 3)
 	{
 		winner = pick_winner(*stack_a, stack_b);
-		print_test(*stack_a, stack_b);
 		move_to_top(stack_a, &stack_b, winner);
 		pb(stack_a, &stack_b);
-		ft_printf("we moved : %d\n\n", winner);
+//		print_test(*stack_a, stack_b);
+//		ft_printf("we moved : %d\n\n", winner);
 	}
 	sort_a(stack_a);
 	sort_back_a(stack_a, &stack_b);

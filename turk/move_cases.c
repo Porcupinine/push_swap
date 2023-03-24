@@ -67,7 +67,7 @@ int move_case_three(int pos_a, int pos_b, int size_a, int size_b)
 //	char* aux = ft_strjoin(cases, "move_case_three\n"); free(cases); cases = aux;
 	if (pos_a <= ((size_a/ 2))  && pos_b > ((size_b/ 2)))
 	{
-		if(pos_b <= (pos_a + size_b - pos_b))
+		if(pos_b < (pos_a + size_b - pos_b))
 		{
 //			ft_printf("fun new move case\n");
 //			ft_printf("pos_a: %d\npos_b: %d\nsize_a: %d\nsize_b: %d\n", pos_a, pos_b, size_a, size_b);
@@ -80,15 +80,15 @@ int move_case_three(int pos_a, int pos_b, int size_a, int size_b)
 	}
 	else
 	{
-		if(pos_a <= (pos_b + size_a - pos_a)) {
+		if(pos_a < (pos_b + size_a - pos_a)) {
 //			ft_printf("fun new move case\n");
 //			ft_printf("pos_a: %d\npos_b: %d\nsize_a: %d\nsize_b: %d\n", pos_a, pos_b, size_a, size_b);
 			moves = pos_a + 1;
 		}
-		else  if ((size_b - pos_b) <= (pos_b + size_a - pos_a))
+		else  if ((size_b - pos_b) < (pos_b + size_a - pos_a))
 			moves = size_b - pos_b + 1;
 		else
-			moves = (size_a - pos_a) + pos_b + 1;
+			moves = size_a - pos_a + pos_b + 1;
 	}
 	return (moves);
 }

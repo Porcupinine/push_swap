@@ -48,14 +48,14 @@ int pick_winner(t_stack*a, t_stack*b)
 	position_a = 0;
 	size_a = check_size(a);
 	moves = determine_moves(a->number, position_a, size_a, b);
-	ft_printf("number is: %d      moves are: %d\n", a->number, determine_moves(a->number, position_a, size_a, b));
+//	ft_printf("number is: %d      moves are: %d\n", a->number, determine_moves(a->number, position_a, size_a, b));
 	position_a++;
 	a = a->next;
 	while (a != NULL)
     {
 //		print_test(a, b);
 //		ft_printf("\n\n");
-		ft_printf("number is: %d      moves are: %d\n", a->number, determine_moves(a->number, position_a, size_a, b));
+//		ft_printf("number is: %d      moves are: %d\n", a->number, determine_moves(a->number, position_a, size_a, b));
         if (determine_moves(a->number, position_a, size_a, b) < moves)
         {
             moves = determine_moves(a->number, position_a, size_a, b);
